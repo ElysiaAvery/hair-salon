@@ -12,8 +12,8 @@ public class ClientTest {
 
   @Before
   public void initialize() {
-    firstClient = new Client("Kathleen Turner", "503-333-3333", 1);
-    secondClient = new Client("Dorian Grey", "503-444-4444", 1);
+    firstClient = new Client("Kathleen Turner", "503-333-3333", "Very Patient", 1);
+    secondClient = new Client("Dorian Grey", "503-444-4444", "Very Picky", 1);
   }
 
   @Rule
@@ -52,7 +52,7 @@ public class ClientTest {
 
   @Test
   public void equals_returnsTrueIfClientNamesAreTheSame() {
-    Client myClient = new Client("Kathleen Turner", "503-333-3333", 1);
+    Client myClient = new Client("Kathleen Turner", "503-333-3333", "Very Patient", 1);
     assertTrue(firstClient.equals(myClient));
   }
 
@@ -73,7 +73,7 @@ public class ClientTest {
   public void save_savesClientIdIntoDB_true() {
     Stylist myStylist = new Stylist("Maureen Martin", "Color");
     myStylist.save();
-    Client myClient = new Client("Kathleen Turner", "503-333-3333", myStylist.getId());
+    Client myClient = new Client("Kathleen Turner", "503-333-3333", "Very Patient", myStylist.getId());
     myClient.save();
     Client savedClient = Client.find(myClient.getId());
     assertEquals(savedClient.getStylistId(), myStylist.getId());
@@ -91,6 +91,13 @@ public class ClientTest {
     firstClient.save();
     firstClient.updateClientPhone("503-888-8888");
     assertEquals("503-888-8888", Client.find(firstClient.getId()).getPhone());
+  }
+
+  @Test
+  public void updateClientNotes_updatesClientNotes_true() {
+    firstClient.save();
+    firstClient.updateClientNotes("Has very thick hair.");
+    assertEquals("Has very thick hair.", Client.find(firstClient.getId()).getNotes());
   }
 
   @Test
