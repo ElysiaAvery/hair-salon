@@ -26,7 +26,7 @@ public class ClientTest {
 
   @Test
   public void Client_instantiatesWithClientName_String() {
-    assertEquals("Kathleen Turner", firstClient.getClientName());
+    assertEquals("Kathleen Turner", firstClient.getName());
   }
 
   @Test
@@ -83,7 +83,7 @@ public class ClientTest {
   public void updateClientName_updatesClientName_true() {
     firstClient.save();
     firstClient.updateClientName("Dolly Parton");
-    assertEquals("Dolly Parton", Client.find(firstClient.getId()).getClientName());
+    assertEquals("Dolly Parton", Client.find(firstClient.getId()).getName());
   }
 
   @Test

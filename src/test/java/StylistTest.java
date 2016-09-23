@@ -51,7 +51,7 @@ public class StylistTest {
 
   @Test
   public void equals_returnsTrueIfNamesAreTheSame() {
-    Stylist myStylist = new Stylist("Maureen Martin", "Color")
+    Stylist myStylist = new Stylist("Maureen Martin", "Color");
     assertTrue(firstStylist.equals(myStylist));
   }
 
@@ -76,10 +76,17 @@ public class StylistTest {
   }
 
   @Test
-  public void updateName_updatesStylistName_true() {
+  public void updateStylistName_updatesStylistName_true() {
     firstStylist.save();
-    firstStylist.updateName("Mo");
+    firstStylist.updateStylistName("Mo");
     assertEquals("Mo", Stylist.find(firstStylist.getId()).getName());
+  }
+
+  @Test
+  public void updateStylistSpecialty_updatesStylistSpecialty_true() {
+    firstStylist.save();
+    firstStylist.updateStylistSpecialty("Cuts");
+    assertEquals("Cuts", Stylist.find(firstStylist.getId()).getSpecialty());
   }
 
   @Test
