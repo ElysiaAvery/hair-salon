@@ -1,12 +1,18 @@
 <h1>$stylist.getName()'s Page</h1>
 
-<h3>Specialty: $Stylist.getSpecialty()</h3>
 
 <ul>
   #foreach($client in $stylist.getClients())
     <li><a href="/clients/$client.getId()">$client.getName()</a></li>
   #end
 </ul>
+
+Edit?
+<a href="/stylists/$stylist.getId()/edit">Click here!</a>
+
+<form action="/stylist/$stylist.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
+</form>
 
 <a href="/">Home Page</a>
 <br>

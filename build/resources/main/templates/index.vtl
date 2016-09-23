@@ -4,7 +4,7 @@
   <p>Click on a Stylist to see their Clients and Specialty</p>
   <ul>
   #foreach ($stylist in $stylists)
-    <li><a href="/$stylists/$stylist.getId()">$stylist.getName()</a></li>
+    <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
   #end
   </ul>
 #else
@@ -28,7 +28,7 @@
 <p>Click on A Client To see Their Details</p>
 <ul>
   #foreach($client in $clients)
-    <li><a href="/$clients/$client.getId()">$client.getName()</a></li>
+    <li><a href="/clients/$client.getId()">$client.getName()</a></li>
   #end
 </ul>
 
