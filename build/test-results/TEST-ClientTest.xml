@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ClientTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2016-09-23T21:20:10" hostname="epicodus-3.local" time="0.357">
+  <properties/>
+  <testcase name="updateClientNotes_updatesClientNotes_true" classname="ClientTest" time="0.114"/>
+  <testcase name="updateClientPhone_updatesClientPhone_true" classname="ClientTest" time="0.019"/>
+  <testcase name="Client_instantiatesWithClientName_String" classname="ClientTest" time="0.005"/>
+  <testcase name="Client_instantiatesCorrectly_true" classname="ClientTest" time="0.005"/>
+  <testcase name="updateClientName_updatesClientName_true" classname="ClientTest" time="0.021"/>
+  <testcase name="save_returnsTrueIfClientNamesAreTheSame" classname="ClientTest" time="0.016"/>
+  <testcase name="all_returnsAllInstancesOfClient_true" classname="ClientTest" time="0.022"/>
+  <testcase name="save_assignsIdToObject" classname="ClientTest" time="0.013"/>
+  <testcase name="equals_returnsTrueIfClientNamesAreTheSame" classname="ClientTest" time="0.005"/>
+  <testcase name="delete_deletesClient_true" classname="ClientTest" time="0.018"/>
+  <testcase name="save_savesClientIdIntoDB_true" classname="ClientTest" time="0.056"/>
+  <testcase name="find_returnsClientWithSameId_secondClient" classname="ClientTest" time="0.052"/>
+  <testcase name="getId_clientsInstantiateWithAnId" classname="ClientTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
