@@ -1,0 +1,11 @@
+<h1>$stylist.getName()'s Page</h1>
+
+<ul>
+  #foreach($client in $stylist.getClients())
+  <li><a href="/clients/$client.getId()">$client.getName()</a></li>
+  #end
+</ul>
+
+<a href="/">Home Page</a>
+<br>
+<a href="/clients">View All Clients</a>

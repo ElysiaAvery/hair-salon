@@ -1,0 +1,27 @@
+<h1>Welcome to Sweet Tamarind Administration System</h1>
+
+#if($stylists.size() > 0)
+  <p>Click on a Stylist to see their Clients and Specialty</p>
+  <ul>
+  #foreach ($stylist in $stylists)
+    <li><a href="/$stylists/$stylist.getId()">$stylist.getName()</a></li>
+  #end
+  </ul>
+#else
+  <p>There are no Stylists in the system yet.</p>
+#end
+
+
+<h4>Add a newly Hired Stylist Here: </h4>
+
+<form action="/stylists" method="post">
+  <div class="form-group">
+    <label for="name">Add Stylist's Name:</label>
+    <input type="text" name="name" id="name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="specialty">Add Stylist's Specialty:</label>
+    <input type="text" name="specialty" id="specialty" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-default">Add Stylist</button>
+</form>
