@@ -35,7 +35,7 @@ For questions, concerns, or suggestions please email elysia.avery@gmail.com
 * None known of yet.
 
 ## Technologies Used
-Java, Gradle, junit, Spark, Velocity Template Engine
+Java, Gradle, junit, Spark, Velocity Template Engine, and PostgreSQL
 
 ## Legal
 *Licensed under MIT open source*
