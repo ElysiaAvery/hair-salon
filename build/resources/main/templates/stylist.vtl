@@ -7,8 +7,15 @@
   #end
 </ul>
 
-Edit?
-<a href="/stylists/$stylist.getId()/edit">Click here!</a>
+<h2>Edit stylist:</h2>
+
+<form action="/stylists/$stylist.getId()" method="post">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text">
+  <label for="specialty">Specialty</label>
+  <input id="specialty" name="specialty" type="text">
+  <button type="submit" class="btn btn-info">Update Stylist</button>
+</form>
 
 <form action="/stylist/$stylist.getId()/delete" method="post">
   <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
