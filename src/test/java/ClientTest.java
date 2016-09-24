@@ -1,3 +1,4 @@
+import org.junit.rules.ExternalResource;
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -12,8 +13,8 @@ public class ClientTest {
 
   @Before
   public void initialize() {
-    firstClient = new Client("Kathleen Turner", "503-333-3333", "Very Patient", 1);
-    secondClient = new Client("Dorian Grey", "503-444-4444", "Very Picky", 1);
+    firstClient = new Client("Kathleen Turner", 1);
+    secondClient = new Client("Dorian Grey", 1);
   }
 
   @Rule
@@ -44,15 +45,15 @@ public class ClientTest {
   }
 
   @Test
-  public void find_returnsClientWithSameId_secondClient() {
+  public void findById_returnsClientWithSameId_secondClient() {
     firstClient.save();
     secondClient.save();
-    assertEquals(Client.find(secondClient.getId()), secondClient);
+    assertEquals(Client.findById(secondClient.getId()), secondClient);
   }
 
   @Test
   public void equals_returnsTrueIfClientNamesAreTheSame() {
-    Client myClient = new Client("Kathleen Turner", "503-333-3333", "Very Patient", 1);
+    Client myClient = new Client("Kathleen Turner", 1);
     assertTrue(firstClient.equals(myClient));
   }
 
@@ -71,11 +72,11 @@ public class ClientTest {
 
   @Test
   public void save_savesClientIdIntoDB_true() {
-    Stylist myStylist = new Stylist("Maureen Martin", "Color");
+    Stylist myStylist = new Stylist("Maureen Martin");
     myStylist.save();
-    Client myClient = new Client("Kathleen Turner", "503-333-3333", "Very Patient", myStylist.getId());
+    Client myClient = new Client("Kathleen Turner", myStylist.getId());
     myClient.save();
-    Client savedClient = Client.find(myClient.getId());
+    Client savedClient = Client.findById(myClient.getId());
     assertEquals(savedClient.getStylistId(), myStylist.getId());
   }
 
@@ -83,21 +84,7 @@ public class ClientTest {
   public void updateClientName_updatesClientName_true() {
     firstClient.save();
     firstClient.updateClientName("Dolly Parton");
-    assertEquals("Dolly Parton", Client.find(firstClient.getId()).getName());
-  }
-
-  @Test
-  public void updateClientPhone_updatesClientPhone_true() {
-    firstClient.save();
-    firstClient.updateClientPhone("503-888-8888");
-    assertEquals("503-888-8888", Client.find(firstClient.getId()).getPhone());
-  }
-
-  @Test
-  public void updateClientNotes_updatesClientNotes_true() {
-    firstClient.save();
-    firstClient.updateClientNotes("Has very thick hair.");
-    assertEquals("Has very thick hair.", Client.find(firstClient.getId()).getNotes());
+    assertEquals("Dolly Parton", Client.findById(firstClient.getId()).getName());
   }
 
   @Test
@@ -105,7 +92,7 @@ public class ClientTest {
     firstClient.save();
     int firstClientId = firstClient.getId();
     firstClient.delete();
-    assertEquals(null, Client.find(firstClientId));
+    assertEquals(null, Client.findById(firstClientId));
   }
 
 }

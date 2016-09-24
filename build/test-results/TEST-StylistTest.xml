@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StylistTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2016-09-23T21:20:10" hostname="epicodus-3.local" time="0.241">
+<testsuite name="StylistTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2016-09-24T20:47:10" hostname="epicodus-107.local" time="0.155">
   <properties/>
-  <testcase name="getClients_retrievesAllClientsFromDatabase_ClientsList" classname="StylistTest" time="0.087"/>
+  <testcase name="getClients_retrievesAllClientsFromDatabase_ClientsList" classname="StylistTest" time="0.021"/>
   <testcase name="all_returnsAllInstancesOfStylist_true" classname="StylistTest" time="0.022"/>
-  <testcase name="save_savesStylistIdIntoDB_true" classname="StylistTest" time="0.015"/>
-  <testcase name="updateStylistName_updatesStylistName_true" classname="StylistTest" time="0.019"/>
-  <testcase name="Stylist_instantiatesCorrectly_true" classname="StylistTest" time="0.004"/>
-  <testcase name="find_returnsStylistWithSameId_secondStylist" classname="StylistTest" time="0.017"/>
-  <testcase name="updateStylistSpecialty_updatesStylistSpecialty_true" classname="StylistTest" time="0.019"/>
-  <testcase name="equals_returnsTrueIfNamesAreTheSame" classname="StylistTest" time="0.003"/>
-  <testcase name="getId_tasksInstantiateWithAnId" classname="StylistTest" time="0.008"/>
+  <testcase name="save_savesStylistIdIntoDB_true" classname="StylistTest" time="0.017"/>
+  <testcase name="updateStylistName_updatesStylistName_true" classname="StylistTest" time="0.015"/>
+  <testcase name="Stylist_instantiatesCorrectly_true" classname="StylistTest" time="0.005"/>
+  <testcase name="find_returnsStylistWithSameId_secondStylist" classname="StylistTest" time="0.016"/>
+  <testcase name="equals_returnsTrueIfNamesAreTheSame" classname="StylistTest" time="0.004"/>
+  <testcase name="getId_tasksInstantiateWithAnId" classname="StylistTest" time="0.009"/>
   <testcase name="Stylist_instantiatesWithName_String" classname="StylistTest" time="0.004"/>
   <testcase name="save_returnsTrueIfNamesAreTheSame" classname="StylistTest" time="0.012"/>
-  <testcase name="save_assignsIdToObject" classname="StylistTest" time="0.011"/>
+  <testcase name="save_assignsIdToObject" classname="StylistTest" time="0.012"/>
   <testcase name="delete_deletesStylist_true" classname="StylistTest" time="0.016"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

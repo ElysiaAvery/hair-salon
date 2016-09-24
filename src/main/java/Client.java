@@ -6,15 +6,11 @@ import org.sql2o.*;
 public class Client {
   private int id;
   private String name;
-  private String phone;
-  private String notes;
   private int stylistId;
 
-  public Client(String name, String phone, String notes, int stylistId) {
+  public Client(String name, int stylistId) {
     this.id = id;
     this.name = name;
-    this.phone = phone;
-    this.notes = notes;
     this.stylistId = stylistId;
   }
 
@@ -24,14 +20,6 @@ public class Client {
 
   public String getName() {
     return name;
-  }
-
-  public String getPhone() {
-    return phone;
-  }
-
-  public String getNotes() {
-    return notes;
   }
 
   public int getStylistId() {
@@ -46,33 +34,29 @@ public class Client {
       Client newClient = (Client) otherClient;
       return this.getId() == newClient.getId() &&
              this.getName().equals(newClient.getName()) &&
-             this.getPhone().equals(newClient.getPhone()) &&
-             this.getNotes().equals(newClient.getNotes()) &&
              this.getStylistId() == newClient.getStylistId();
     }
   }
 
   public static List<Client> all() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT id, name, phone, notes, stylistId FROM clients";
+      String sql = "SELECT id, name, stylistId FROM clients";
       return con.createQuery(sql).executeAndFetch(Client.class);
     }
   }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO clients(name, phone, notes, stylistId)  VALUES (:name, :phone, :notes, :stylistId)";
+      String sql = "INSERT INTO clients(name, stylistId)  VALUES (:name, :stylistId)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
-      .addParameter("phone", this.phone)
-      .addParameter("notes", this.notes)
       .addParameter("stylistId", this.stylistId)
       .executeUpdate()
       .getKey();
     }
   }
 
-  public static Client find(int id) {
+  public static Client findById(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM clients WHERE id = :id";
       Client client = con.createQuery(sql)
@@ -88,28 +72,6 @@ public class Client {
       String sql = "UPDATE clients SET name = :name WHERE id = :id";
       con.createQuery(sql)
         .addParameter("name", name)
-        .addParameter("id", id)
-        .executeUpdate();
-    }
-  }
-
-  public void updateClientPhone(String phone) {
-    this.phone = phone;
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE clients SET phone = :phone WHERE id = :id";
-      con.createQuery(sql)
-        .addParameter("phone", phone)
-        .addParameter("id", id)
-        .executeUpdate();
-    }
-  }
-
-  public void updateClientNotes(String notes) {
-    this.notes = notes;
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE clients SET notes = :notes WHERE id = :id";
-      con.createQuery(sql)
-        .addParameter("notes", notes)
         .addParameter("id", id)
         .executeUpdate();
     }

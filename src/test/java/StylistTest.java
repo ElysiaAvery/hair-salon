@@ -1,3 +1,4 @@
+import org.junit.rules.ExternalResource;
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -11,8 +12,8 @@ public class StylistTest {
 
   @Before
   public void initialize() {
-    firstStylist = new Stylist("Maureen Martin", "Color");
-    secondStylist = new Stylist("Tyler Brown", "Bridal Style");
+    firstStylist = new Stylist("Maureen Martin");
+    secondStylist = new Stylist("Tyler Brown");
   }
 
   @Rule
@@ -51,7 +52,7 @@ public class StylistTest {
 
   @Test
   public void equals_returnsTrueIfNamesAreTheSame() {
-    Stylist myStylist = new Stylist("Maureen Martin", "Color");
+    Stylist myStylist = new Stylist("Maureen Martin");
     assertTrue(firstStylist.equals(myStylist));
   }
 
@@ -83,18 +84,11 @@ public class StylistTest {
   }
 
   @Test
-  public void updateStylistSpecialty_updatesStylistSpecialty_true() {
-    firstStylist.save();
-    firstStylist.updateStylistSpecialty("Cuts");
-    assertEquals("Cuts", Stylist.find(firstStylist.getId()).getSpecialty());
-  }
-
-  @Test
   public void getClients_retrievesAllClientsFromDatabase_ClientsList() {
     firstStylist.save();
-    Client firstClient = new Client("Kathleen Turner", "503-333-3333", "Very Patient", firstStylist.getId());
+    Client firstClient = new Client("Kathleen Turner", firstStylist.getId());
     firstClient.save();
-    Client secondClient = new Client("Dorian Grey", "503-444-4444", "Very Picky", firstStylist.getId());
+    Client secondClient = new Client("Dorian Grey", firstStylist.getId());
     secondClient.save();
     Client[] clients = new Client[] { firstClient, secondClient };
     assertTrue(firstStylist.getClients().containsAll(Arrays.asList(clients)));

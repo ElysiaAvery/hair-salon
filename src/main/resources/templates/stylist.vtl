@@ -3,24 +3,31 @@
 
 <ul>
   #foreach($client in $stylist.getClients())
-    <li><a href="/clients/$client.getId()">$client.getName()</a></li>
+    <li><a href="stylists/$client.getStylistId()/clients/$client.getId()">$client.getName()</a></li>
   #end
 </ul>
 
+<h3>Appointments</h3>
+#if($stylist.getAppointments().size() > 0)
+  <ul>
+    #foreach($appointment in $stylist.getAppointments())
+      <li><a href="/stylists/$appointment.getStylistId()/clients/$appointment.getClientId()/appointments/$appointment.getId()">$appointment.getDate()</a></li>
+    #end
+  </ul>
+#else
+  <p>No appointments are in the system yet.</p>
+#end
+
 <h2>Edit stylist:</h2>
 
-<form action="/stylists/$stylist.getId()" method="post">
-  <label for="name">Name</label>
-  <input id="name" name="name" type="text">
-  <label for="specialty">Specialty</label>
-  <input id="specialty" name="specialty" type="text">
+<form action="/stylists/$stylist.getId()/update" method="post">
+  <label for="stylist-name">Name</label>
+  <input id="stylist-name" name="stylist-name" type="text" required>
   <button type="submit" class="btn btn-info">Update Stylist</button>
 </form>
 
-<form action="/stylist/$stylist.getId()/delete" method="post">
+<form action="/stylists/$stylist.getId()/delete" method="post">
   <button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button>
 </form>
 
 <a href="/">Home Page</a>
-<br>
-<a href="/clients">View All Clients</a>

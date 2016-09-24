@@ -6,12 +6,10 @@ import org.sql2o.*;
 public class Stylist {
   private int id;
   private String name;
-  private String specialty;
 
-  public Stylist(String name, String specialty) {
+  public Stylist(String name) {
     this.id = id;
     this.name = name;
-    this.specialty = specialty;
   }
 
   public int getId() {
@@ -22,10 +20,6 @@ public class Stylist {
     return name;
   }
 
-  public String getSpecialty() {
-    return specialty;
-  }
-
   @Override
   public boolean equals(Object otherStylist) {
     if(!(otherStylist instanceof Stylist)) {
@@ -33,24 +27,22 @@ public class Stylist {
     } else {
       Stylist newStylist = (Stylist) otherStylist;
       return this.getId() == newStylist.getId() &&
-             this.getName().equals(newStylist.getName()) &&
-             this.getSpecialty().equals(newStylist.getSpecialty());
+             this.getName().equals(newStylist.getName());
     }
   }
 
   public static List<Stylist> all() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT id, name, specialty FROM stylists";
+      String sql = "SELECT id, name FROM stylists";
       return con.createQuery(sql).executeAndFetch(Stylist.class);
     }
   }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "INSERT INTO stylists(name, specialty)  VALUES (:name, :specialty)";
+      String sql = "INSERT INTO stylists(name)  VALUES (:name)";
       this.id = (int) con.createQuery(sql, true)
       .addParameter("name", this.name)
-      .addParameter("specialty", this.specialty)
       .executeUpdate()
       .getKey();
     }
@@ -75,23 +67,22 @@ public class Stylist {
     }
   }
 
+  // public List<Appointment> getAppointments() {
+  //   this.id = id;
+  //   try(Connection con = DB.sql2o.open()) {
+  //     String sql = "SELECT * FROM appointments WHERE stylistId = :id";
+  //     return con.createQuery(sql)
+  //       .addParameter("id", id)
+  //       .executeAndFetch(Appointment.class);
+  //   }
+  // }
+
   public void updateStylistName(String name) {
     this.name = name;
     try(Connection con = DB.sql2o.open()) {
       String sql = "UPDATE stylists SET name = :name WHERE id = :id";
       con.createQuery(sql)
         .addParameter("name", name)
-        .addParameter("id", id)
-        .executeUpdate();
-    }
-  }
-
-  public void updateStylistSpecialty(String specialty) {
-    this.specialty = specialty;
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE stylists SET specialty = :specialty WHERE id = :id";
-      con.createQuery(sql)
-        .addParameter("specialty", specialty)
         .addParameter("id", id)
         .executeUpdate();
     }
