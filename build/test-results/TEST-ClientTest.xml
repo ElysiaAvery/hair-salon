@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ClientTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2016-09-24T20:47:10" hostname="epicodus-107.local" time="0.144">
+<testsuite name="ClientTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2016-09-25T20:44:27" hostname="epicodus-107.local" time="0.141">
   <properties/>
   <testcase name="findById_returnsClientWithSameId_secondClient" classname="ClientTest" time="0.018"/>
-  <testcase name="Client_instantiatesWithClientName_String" classname="ClientTest" time="0.004"/>
-  <testcase name="Client_instantiatesCorrectly_true" classname="ClientTest" time="0.006"/>
-  <testcase name="updateClientName_updatesClientName_true" classname="ClientTest" time="0.018"/>
+  <testcase name="Client_instantiatesWithClientName_String" classname="ClientTest" time="0.005"/>
+  <testcase name="Client_instantiatesCorrectly_true" classname="ClientTest" time="0.005"/>
+  <testcase name="updateClientName_updatesClientName_true" classname="ClientTest" time="0.017"/>
   <testcase name="save_returnsTrueIfClientNamesAreTheSame" classname="ClientTest" time="0.015"/>
-  <testcase name="all_returnsAllInstancesOfClient_true" classname="ClientTest" time="0.023"/>
-  <testcase name="save_assignsIdToObject" classname="ClientTest" time="0.013"/>
+  <testcase name="all_returnsAllInstancesOfClient_true" classname="ClientTest" time="0.022"/>
+  <testcase name="save_assignsIdToObject" classname="ClientTest" time="0.014"/>
   <testcase name="equals_returnsTrueIfClientNamesAreTheSame" classname="ClientTest" time="0.004"/>
   <testcase name="delete_deletesClient_true" classname="ClientTest" time="0.015"/>
   <testcase name="save_savesClientIdIntoDB_true" classname="ClientTest" time="0.016"/>
-  <testcase name="getId_clientsInstantiateWithAnId" classname="ClientTest" time="0.009"/>
+  <testcase name="getId_clientsInstantiateWithAnId" classname="ClientTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

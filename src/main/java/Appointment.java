@@ -30,10 +30,6 @@ public class Appointment {
     return clientId;
   }
 
-  public int getStylistId() {
-    return Client.findById(this.clientId).getStylistId();
-  }
-
   public void setDate(String date) {
     this.date = date;
     try(Connection con = DB.sql2o.open()) {
@@ -60,17 +56,19 @@ public class Appointment {
         .addParameter("date", this.date)
         .addParameter("time", this.time)
         .addParameter("clientId", this.clientId)
-        .executeUpdate().getKey();
+        .executeUpdate()
+        .getKey();
     }
   }
 
   @Override
-  public boolean equals(Object testObj) {
-    if(!(testObj instanceof Appointment))
+  public boolean equals(Object otherAppointment) {
+    if(!(otherAppointment instanceof Appointment))
       return false;
     else {
-      Appointment appointmentCast = (Appointment) testObj;
-      return (this.id == appointmentCast.getId() && this.clientId == appointmentCast.getClientId());
+      Appointment newAppointment = (Appointment) otherAppointment;
+      return (this.id == newAppointment.getId() &&
+              this.clientId == newAppointment.getClientId());
     }
   }
 

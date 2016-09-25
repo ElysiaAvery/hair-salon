@@ -3,20 +3,10 @@
 
 <ul>
   #foreach($client in $stylist.getClients())
-    <li><a href="stylists/$client.getStylistId()/clients/$client.getId()">$client.getName()</a></li>
+    <li><a href="/clients/$client.getId()">$client.getName()</a></li>
   #end
 </ul>
 
-<h3>Appointments</h3>
-#if($stylist.getAppointments().size() > 0)
-  <ul>
-    #foreach($appointment in $stylist.getAppointments())
-      <li><a href="/stylists/$appointment.getStylistId()/clients/$appointment.getClientId()/appointments/$appointment.getId()">$appointment.getDate()</a></li>
-    #end
-  </ul>
-#else
-  <p>No appointments are in the system yet.</p>
-#end
 
 <h2>Edit stylist:</h2>
 
@@ -31,5 +21,3 @@
 </form>
 
 <a href="/">Home Page</a>
-<br>
-<a href="/clients">View All Clients</a>

@@ -47,7 +47,7 @@
 
 <ul>
   #foreach($appointment in $appointments)
-    <li><a href="/stylists/$appointment.getStylistId()/clients/$appointment.getClientId()/appointments/$appointment.getId()">$appointment.getDate()</a></li>
+    <li><a href="/clients/$appointment.getClientId()/appointments/$appointment.getId()">$appointment.getDate()</a></li>
   #end
 </ul>
 
