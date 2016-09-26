@@ -3,4 +3,8 @@
 <h2>Time of Appointment: $appointment.getTime()</h2>
 <h3>Client: $client.getName()</h3>
 
+<form action="/clients/$appointment.getClientId()/appointments/$appointment.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-client">Delete Appointment</button>
+</form>
+
 <a href="/">Home</a>
