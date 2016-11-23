@@ -1,5 +1,4 @@
 # Sweet Tamarind Hair Salon
-![project screenshot](/screenshot.png)
 
 Version 0.0.0: September 23, 2016
 
