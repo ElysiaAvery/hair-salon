@@ -5,7 +5,7 @@ Version 0.0.0: September 23, 2016
 by [Elysia Avery Nason](https://github.com/elysiaavery)
 
 ## Description
-A program that allows the user to add a word, as well as multiple definitions. [here.](https://elysiaavery.github.io/hair-salon/)
+A program that allows the user to add stylists, clients and create one-to-many relationships with the use of a database. [here.](https://elysiaavery.github.io/hair-salon/)
 
 ### Specifications
 | Behaviour                                                  | Input                                                                | Output                                                               |
